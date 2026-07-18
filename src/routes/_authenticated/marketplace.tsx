@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CATEGORIES, UNIVERSITIES, formatNaira } from "@/lib/constants";
+import { ALL_CATEGORIES, UNIVERSITIES, formatNaira } from "@/lib/constants";
 import { Search, Sparkles, PlusCircle } from "lucide-react";
 import { useState } from "react";
 import { ListingImage } from "@/components/listing-image";
@@ -20,9 +20,9 @@ function Marketplace() {
   const { data: listings, isLoading } = useQuery({
     queryKey: ["listings", q, category, uni],
     queryFn: async () => {
-      let query = supabase.from("listings").select("*").eq("status", "ACTIVE").order("boosted", { ascending: false }).order("created_at", { ascending: false }).limit(60);
+      let query = supabase.from("listings").select("*").eq("status", "ACTIVE").order("is_featured", { ascending: false }).order("created_at", { ascending: false }).limit(60);
       if (category !== "ALL") query = query.eq("category", category);
-      if (uni !== "ALL") query = query.eq("university", uni);
+      if (uni !== "ALL") query = query.eq("university", uni as "UNILORIN" | "AL_HIKMAH" | "KWASU");
       if (q.trim()) query = query.ilike("title", `%${q.trim()}%`);
       const { data, error } = await query;
       if (error) throw error;
@@ -49,7 +49,7 @@ function Marketplace() {
           <SelectTrigger className="md:w-56"><SelectValue placeholder="Category" /></SelectTrigger>
           <SelectContent>
             <SelectItem value="ALL">All categories</SelectItem>
-            {CATEGORIES.map((c) => <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>)}
+            {ALL_CATEGORIES.map((c) => <SelectItem key={c} value={c}>{c}</SelectItem>)}
           </SelectContent>
         </Select>
         <Select value={uni} onValueChange={setUni}>
@@ -74,7 +74,7 @@ function Marketplace() {
           <Link key={l.id} to="/marketplace" className="group overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:shadow-elegant">
             <div className="relative aspect-square overflow-hidden bg-muted">
               <ListingImage path={l.images?.[0] ?? null} alt={l.title} />
-              {l.boosted && <Badge className="absolute left-3 top-3 bg-primary-gradient text-primary-foreground"><Sparkles className="mr-1 h-3 w-3" />Boosted</Badge>}
+              {l.is_featured && <Badge className="absolute left-3 top-3 bg-primary-gradient text-primary-foreground"><Sparkles className="mr-1 h-3 w-3" />Featured</Badge>}
             </div>
             <div className="p-4">
               <p className="font-display text-lg font-semibold">{formatNaira(Number(l.price))}</p>
