@@ -39,7 +39,7 @@ function Profile() {
             ["Level", p?.level],
             ["Matric #", p?.matric_number],
             ["Phone", p?.phone],
-            ["Hostel", p?.hostel_area ?? "—"],
+            ["Bio", p?.bio ?? "—"],
           ].map(([k, v]) => (
             <div key={k as string} className="rounded-xl bg-muted/50 p-3">
               <dt className="text-xs uppercase tracking-wide text-muted-foreground">{k}</dt>
