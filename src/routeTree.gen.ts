@@ -23,6 +23,7 @@ import { Route as AuthenticatedMyListingsRouteImport } from './routes/_authentic
 import { Route as AuthenticatedMessagesRouteImport } from './routes/_authenticated/messages'
 import { Route as AuthenticatedMarketplaceRouteImport } from './routes/_authenticated/marketplace'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedListingIdRouteImport } from './routes/_authenticated/listing.$id'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -94,6 +95,11 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedListingIdRoute = AuthenticatedListingIdRouteImport.update({
+  id: '/listing/$id',
+  path: '/listing/$id',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -109,6 +115,7 @@ export interface FileRoutesByFullPath {
   '/saved': typeof AuthenticatedSavedRoute
   '/sell': typeof AuthenticatedSellRoute
   '/verify': typeof AuthenticatedVerifyRoute
+  '/listing/$id': typeof AuthenticatedListingIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/saved': typeof AuthenticatedSavedRoute
   '/sell': typeof AuthenticatedSellRoute
   '/verify': typeof AuthenticatedVerifyRoute
+  '/listing/$id': typeof AuthenticatedListingIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/_authenticated/saved': typeof AuthenticatedSavedRoute
   '/_authenticated/sell': typeof AuthenticatedSellRoute
   '/_authenticated/verify': typeof AuthenticatedVerifyRoute
+  '/_authenticated/listing/$id': typeof AuthenticatedListingIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -158,6 +167,7 @@ export interface FileRouteTypes {
     | '/saved'
     | '/sell'
     | '/verify'
+    | '/listing/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -173,6 +183,7 @@ export interface FileRouteTypes {
     | '/saved'
     | '/sell'
     | '/verify'
+    | '/listing/$id'
   id:
     | '__root__'
     | '/'
@@ -189,6 +200,7 @@ export interface FileRouteTypes {
     | '/_authenticated/saved'
     | '/_authenticated/sell'
     | '/_authenticated/verify'
+    | '/_authenticated/listing/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -300,6 +312,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/listing/$id': {
+      id: '/_authenticated/listing/$id'
+      path: '/listing/$id'
+      fullPath: '/listing/$id'
+      preLoaderRoute: typeof AuthenticatedListingIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
@@ -312,6 +331,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedSavedRoute: typeof AuthenticatedSavedRoute
   AuthenticatedSellRoute: typeof AuthenticatedSellRoute
   AuthenticatedVerifyRoute: typeof AuthenticatedVerifyRoute
+  AuthenticatedListingIdRoute: typeof AuthenticatedListingIdRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -323,6 +343,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedSavedRoute: AuthenticatedSavedRoute,
   AuthenticatedSellRoute: AuthenticatedSellRoute,
   AuthenticatedVerifyRoute: AuthenticatedVerifyRoute,
+  AuthenticatedListingIdRoute: AuthenticatedListingIdRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
