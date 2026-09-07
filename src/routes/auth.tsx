@@ -33,22 +33,22 @@ function AuthPage() {
   return (
     <div className="min-h-screen bg-muted/30">
       <div className="mx-auto grid min-h-screen max-w-6xl md:grid-cols-2">
-        <div className="hidden bg-hero-gradient p-10 text-white md:flex md:flex-col md:justify-between">
+        <div className="hidden bg-secondary p-10 text-white md:flex md:flex-col md:justify-between">
           <Link to="/" className="flex items-center gap-2 font-display text-lg font-bold">
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-white/10">U</span>
-            UniMart <span className="text-white/80">NG</span>
+            UniFyd <span className="text-white/80">NG</span>
           </Link>
           <div>
             <h2 className="font-display text-4xl font-bold leading-tight">Your campus marketplace, in one trusted place.</h2>
             <p className="mt-4 text-white/80">Verified students. Fair prices. Zero scams.</p>
           </div>
-          <p className="text-sm text-white/60">© {new Date().getFullYear()} UniMart NG</p>
+          <p className="text-sm text-white/60">© {new Date().getFullYear()} UniFyd NG</p>
         </div>
         <div className="flex items-center justify-center p-6 md:p-10">
           <div className="w-full max-w-md">
             <Link to="/" className="mb-6 inline-flex items-center gap-2 font-display text-lg font-bold md:hidden">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-gradient text-primary-foreground">U</span>
-              UniMart <span className="text-primary">NG</span>
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-primary-foreground">U</span>
+              UniFyd <span className="text-primary">NG</span>
             </Link>
             <Tabs defaultValue={mode ?? "signin"} className="w-full">
               <TabsList className="grid w-full grid-cols-2">
@@ -116,7 +116,7 @@ function SignInForm() {
           <Input id="si-pass" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
       )}
-      <Button type="submit" disabled={loading} className="w-full bg-primary-gradient shadow-elegant">
+      <Button type="submit" disabled={loading} className="w-full bg-primary">
         {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />} {showForgot ? "Send reset link" : "Sign in"}
       </Button>
       <button type="button" onClick={() => setShowForgot((v) => !v)} className="w-full text-center text-sm text-muted-foreground hover:text-foreground">
@@ -165,7 +165,7 @@ function SignUpForm() {
     });
     setLoading(false);
     if (error) return toast.error(error.message);
-    toast.success("Account created — welcome to UniMart NG!");
+    toast.success("Account created, welcome to UniFyd NG!");
     navigate({ to: "/verify" });
   }
 
@@ -198,7 +198,7 @@ function SignUpForm() {
         <div className="space-y-2"><Label>Level</Label><Input placeholder="e.g. 300" value={form.level} onChange={(e) => set("level", e.target.value)} required /></div>
         <div className="space-y-2"><Label>Matric #</Label><Input value={form.matric_number} onChange={(e) => set("matric_number", e.target.value)} required /></div>
       </div>
-      <Button type="submit" disabled={loading} className="w-full bg-primary-gradient shadow-elegant">
+      <Button type="submit" disabled={loading} className="w-full bg-primary">
         {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />} Create account
       </Button>
     </form>

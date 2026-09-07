@@ -14,8 +14,8 @@ function Landing() {
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <Link to="/" className="flex items-center gap-2 font-display text-lg font-bold">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-gradient text-primary-foreground shadow-elegant">U</span>
-            <span>UniMart <span className="text-primary">NG</span></span>
+            <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-card">U</span>
+            <span>UniFyd <span className="text-primary">NG</span></span>
           </Link>
           <nav className="hidden gap-6 text-sm text-muted-foreground md:flex">
             <a href="#how" className="hover:text-foreground">How it works</a>
@@ -24,12 +24,12 @@ function Landing() {
           </nav>
           <div className="flex items-center gap-2">
             <Button asChild variant="ghost" size="sm"><Link to="/auth">Sign in</Link></Button>
-            <Button asChild size="sm" className="bg-primary-gradient shadow-elegant"><Link to="/auth" search={{ mode: "signup" }}>Join UniMart</Link></Button>
+            <Button asChild size="sm"><Link to="/auth" search={{ mode: "signup" }}>Join UniFyd</Link></Button>
           </div>
         </div>
       </header>
 
-      <section className="relative overflow-hidden bg-hero-gradient text-white">
+      <section className="relative overflow-hidden bg-secondary text-white">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 md:grid-cols-2 md:py-28">
           <div className="flex flex-col justify-center">
             <Badge className="w-fit bg-white/10 text-white hover:bg-white/15">Now onboarding UNILORIN, Al-Hikmah &amp; KWASU</Badge>
@@ -37,7 +37,7 @@ function Landing() {
               The Marketplace Built for Nigerian Students
             </h1>
             <p className="mt-5 max-w-xl text-lg text-white/80">
-              Buy and sell safely inside your campus community. Verified students only — no scams, no scattered WhatsApp groups.
+              Buy and sell safely inside your campus community. Verified students only, no scams, no scattered WhatsApp groups.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="bg-white text-secondary hover:bg-white/90">
@@ -75,7 +75,7 @@ function Landing() {
       </section>
 
       <section id="how" className="mx-auto max-w-6xl px-4 py-20">
-        <h2 className="font-display text-3xl font-bold md:text-4xl">How UniMart works</h2>
+        <h2 className="font-display text-3xl font-bold md:text-4xl">How UniFyd works</h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">Three simple steps to buy or sell within your campus.</p>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {[
@@ -113,7 +113,7 @@ function Landing() {
         <div className="grid gap-10 md:grid-cols-2">
           <div>
             <h2 className="font-display text-3xl font-bold md:text-4xl">Built on trust, not luck</h2>
-            <p className="mt-3 text-muted-foreground">Every seller is a verified student on your campus. Ratings and reviews follow them across every transaction — so you always know who you're dealing with.</p>
+            <p className="mt-3 text-muted-foreground">Every seller is a verified student on your campus. Ratings and reviews follow them across every transaction, so you always know who you're dealing with.</p>
           </div>
           <ul className="space-y-3">
             {["Student ID verification for every seller", "In-app chat, no phone number sharing required", "Report listings & block users in one tap", "Final year clearance sales spotlight"].map((x) => (
@@ -126,7 +126,7 @@ function Landing() {
       </section>
 
       <section className="mx-auto mb-20 max-w-6xl px-4">
-        <div className="rounded-3xl bg-hero-gradient p-10 text-center text-white shadow-elegant md:p-14">
+        <div className="rounded-3xl bg-secondary p-10 text-center text-white shadow-card md:p-14">
           <h2 className="font-display text-3xl font-bold md:text-4xl">Ready to join your campus market?</h2>
           <p className="mx-auto mt-3 max-w-xl text-white/80">Create your student account in minutes. Verification is free.</p>
           <Button asChild size="lg" className="mt-6 bg-white text-secondary hover:bg-white/90">
@@ -136,7 +136,7 @@ function Landing() {
       </section>
 
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} UniMart NG — Built for Nigerian students.
+        © {new Date().getFullYear()} UniFyd NG, Built for Nigerian students.
       </footer>
     </div>
   );

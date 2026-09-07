@@ -18,9 +18,9 @@ function Verify() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-10">
       <div className="rounded-3xl border border-border bg-card p-8 shadow-card">
-        <div className="grid h-14 w-14 place-items-center rounded-2xl bg-primary-gradient text-primary-foreground shadow-elegant"><ShieldCheck className="h-7 w-7" /></div>
+        <div className="grid h-14 w-14 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-card"><ShieldCheck className="h-7 w-7" /></div>
         <h1 className="mt-4 font-display text-2xl font-bold">Verify your student ID</h1>
-        <p className="mt-2 text-muted-foreground">Verification unlocks the ability to sell on UniMart. Upload a clear photo of your school ID — an admin will review it within 24 hours.</p>
+        <p className="mt-2 text-muted-foreground">Verification unlocks the ability to sell on UniFyd. Upload a clear photo of your school ID, an admin will review it within 24 hours.</p>
         <div className="mt-6 flex items-center gap-3">
           <span className="text-sm text-muted-foreground">Current status:</span>
           <Badge variant={status === "APPROVED" ? "default" : "outline"}>{String(status).replaceAll("_", " ")}</Badge>
