@@ -8,5 +8,5 @@ export function ListingImage({ path, alt, className }: { path: string | null; al
       <ImageOff className="h-8 w-8" />
     </div>
   );
-  return <img src={url ?? undefined} alt={alt} className={`h-full w-full object-cover transition group-hover:scale-105 ${className ?? ""}`} />;
+  return <img src={url ?? undefined} alt={alt} className={`h-full w-full object-cover transition ${className ?? ""}`} />;
 }

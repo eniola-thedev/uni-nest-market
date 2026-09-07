@@ -79,10 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "UniMart NG — The Marketplace Built for Nigerian Students" },
+      { title: "UniFyd NG, The Marketplace Built for Nigerian Students" },
       { name: "description", content: "Buy and sell safely with verified students at UNILORIN, Al-Hikmah and KWASU. Hostel items, electronics, books and more." },
-      { name: "author", content: "UniMart NG" },
-      { property: "og:title", content: "UniMart NG — The Marketplace Built for Nigerian Students" },
+      { name: "author", content: "UniFyd NG" },
+      { property: "og:title", content: "UniFyd NG, The Marketplace Built for Nigerian Students" },
       { property: "og:description", content: "A trusted campus marketplace for verified Nigerian students." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

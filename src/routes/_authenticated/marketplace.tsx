@@ -37,7 +37,7 @@ function Marketplace() {
           <h1 className="font-display text-2xl font-bold md:text-3xl">Campus marketplace</h1>
           <p className="text-sm text-muted-foreground">Trusted listings from verified students.</p>
         </div>
-        <Button asChild className="bg-primary-gradient shadow-elegant"><Link to="/sell"><PlusCircle className="mr-2 h-4 w-4" />Post a listing</Link></Button>
+        <Button asChild><Link to="/sell"><PlusCircle className="mr-2 h-4 w-4" />Post a listing</Link></Button>
       </div>
 
       <div className="mt-5 flex flex-col gap-3 rounded-2xl border border-border bg-card p-3 shadow-card md:flex-row">
@@ -71,10 +71,10 @@ function Marketplace() {
           </div>
         )}
         {listings?.map((l) => (
-          <Link key={l.id} to="/marketplace" className="group overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:shadow-elegant">
+          <Link key={l.id} to="/marketplace" className="group overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:shadow-card">
             <div className="relative aspect-square overflow-hidden bg-muted">
               <ListingImage path={l.images?.[0] ?? null} alt={l.title} />
-              {l.is_featured && <Badge className="absolute left-3 top-3 bg-primary-gradient text-primary-foreground"><Sparkles className="mr-1 h-3 w-3" />Featured</Badge>}
+              {l.is_featured && <Badge className="absolute left-3 top-3 bg-primary text-primary-foreground"><Sparkles className="mr-1 h-3 w-3" />Featured</Badge>}
             </div>
             <div className="p-4">
               <p className="font-display text-lg font-semibold">{formatNaira(Number(l.price))}</p>

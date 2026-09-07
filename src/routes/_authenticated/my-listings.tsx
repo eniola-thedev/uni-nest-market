@@ -24,7 +24,7 @@ function MyListings() {
     <div className="mx-auto max-w-5xl px-4 py-8">
       <div className="flex items-center justify-between">
         <h1 className="font-display text-2xl font-bold">My listings</h1>
-        <Button asChild className="bg-primary-gradient"><Link to="/sell"><PlusCircle className="mr-2 h-4 w-4" />New listing</Link></Button>
+        <Button asChild><Link to="/sell"><PlusCircle className="mr-2 h-4 w-4" />New listing</Link></Button>
       </div>
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {isLoading && Array.from({ length: 3 }).map((_, i) => <div key={i} className="h-64 animate-pulse rounded-2xl bg-muted" />)}
