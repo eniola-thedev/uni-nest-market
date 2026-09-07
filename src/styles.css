@@ -99,10 +99,7 @@
   --sidebar-border: oklch(0.92 0.008 240);
   --sidebar-ring: oklch(0.62 0.16 155);
 
-  --gradient-hero: linear-gradient(135deg, oklch(0.22 0.05 255) 0%, oklch(0.30 0.08 220) 55%, oklch(0.45 0.15 165) 100%);
-  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-glow) 100%);
   --shadow-card: 0 1px 2px oklch(0.20 0.04 250 / 0.04), 0 8px 24px -12px oklch(0.20 0.04 250 / 0.10);
-  --shadow-card: 0 12px 32px -12px oklch(0.62 0.16 155 / 0.28);
 }
 
 .dark {
@@ -162,7 +159,4 @@
   }
 }
 
-@utility bg-secondary { background-image: var(--gradient-hero); }
-@utility bg-primary { background-image: var(--gradient-primary); }
-@utility shadow-card { box-shadow: var(--shadow-card); }
 @utility shadow-card { box-shadow: var(--shadow-card); }
